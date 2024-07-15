@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Taller Chelsea</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="apple-touch-icon" href="{% static 'img/apple-icon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/loginup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+</head>
+
+    <body>
+        <div class="container">
+            <div class="signin-signup">
+                <form action="" class="sign-in-form">
+                    <h2 class="title">Iniciar Sesión</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Nombre de Usuario">
+                        <div class="invalid-feedback" id="signin-username-error"></div>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Contraseña" id="password">
+                            <i class="fas fa-eye" onclick="togglePasswordVisibility()"></i>
+                    </div>
+                    <input type="submit" value="Iniciar" class="btn1">
+                    <p class="social-text">Puedes iniciar sesión en otra plataforma</p>
+                    <div class="social-media">
+                        <a href="" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <a href="{% url 'autos' %}" type="button" value="Volver" class="btn1">Volver</a>
+                </form>
+                <form id="registerForm" class="sign-up-form">
+                    <h2 class="title">Registrate</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" id="username">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Email" id="email">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="password">
+                    </div>
+                    <input type="submit" value="Registrarse" class="btn1">
+                    <p class="social-text">Puedes Registrarte desde otra plataforma</p>
+                    <div class="social-media">
+                        <a href="" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>¿Ya eres miembro?</h3>
+                        <p>Accede ahora mismo con tu cuenta ya registrada</p>
+                        <button class="btn1" id="sign-in-btn">Iniciar Sesión</button>
+                    </div>
+                    <img src="{% static 'img/Sign-in.png' %}" alt="" class="imagen">
+                </div>
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h3>¿Nuevo en el taller?</h3>
+                        <p>Registrese de manera gratuita a nuestro servicio y obtenga beneficios</p>
+                        <button class="btn1" id="sign-up-btn">Registrarse</button>
+                    </div>
+                    <img src="{% static 'img/Sign-up.png' %}" alt="" class="imagen">
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+
+</html>

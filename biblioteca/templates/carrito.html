@@ -1,0 +1,38 @@
+<!-- carrito_fragment.html -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Servicio</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for elemento in carrito.elementos.all %}
+        <tr>
+            <td>{{ elemento.servicio.servicio }}</td>
+            <td>${{ elemento.servicio.precio }}</td>
+            <td>{{ elemento.cantidad }}</td>
+            <td>${{ elemento.total_precio }}</td>
+            <td>
+                <a href="{% url 'eliminar_elemento_carrito' elemento.id %}" class="btn btn-sm btn-outline-danger delete-cart-item">Eliminar</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-primary update-cart" href="{% url 'actualizar_elemento_carrito' elemento.id 'reducir' %}">-</a>
+                <a class="btn btn-outline-primary update-cart" href="{% url 'actualizar_elemento_carrito' elemento.id 'aumentar' %}">+</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3"><strong>Total:</strong></td>
+            <td colspan="2">${{ total }}</td>
+        </tr>
+    </tbody>
+    <td colspan="5" class="text-end">
+        <a href="{% url 'limpiar_carrito' %}" class="btn btn-outline-danger clear-cart">Limpiar Carrito</a>
+        <a href="{% url 'comprar' %}" class="btn btn-primary">Comprar</a>
+    </td>
+</table>

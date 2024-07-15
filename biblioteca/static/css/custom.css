@@ -1,0 +1,22 @@
+/*
+Custom Css
+*/
+#enlace {
+    color: #3498db; /* Color de texto normal */
+    text-decoration: none; /* Quitamos la decoración de subrayado */
+    transition: color 0.3s; /* Transición suave para el color de texto */
+  }
+  
+#enlace:hover {
+    color: #ff0000; /* Color de texto cuando se hace hover */
+  }
+
+  .invalid-feedback {
+    display: block;
+    color: red;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+.input-field i {
+    cursor: pointer;
+}

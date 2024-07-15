@@ -1,0 +1,61 @@
+<!-- boleta.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Boleta de Compra</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Agrega otros estilos según sea necesario -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Boleta de Compra</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Servicio</th>
+                                    <th scope="col">Precio Unitario</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for elemento in elementos %}
+                                <tr>
+                                    <td>{{ elemento.servicio.servicio }}</td>
+                                    <td>${{ elemento.servicio.precio }}</td>
+                                    <td>{{ elemento.cantidad }}</td>
+                                    <td>${{ elemento.total_precio }}</td>
+                                </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold">Total:</td>
+                                    <td class="fw-bold">${{ total }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <form action="{% url 'limpiar_carrito_desde_boleta' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">Volver</button>
+                        </form>
+                        <!-- Agrega aquí cualquier otra información relevante -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega aquí los scripts necesarios -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Otros scripts opcionales -->
+</body>
+
+</html>
